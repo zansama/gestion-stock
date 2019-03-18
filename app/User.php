@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $attributes = [
+        'role' => 'user'
+    ];
+
+    public function isAdmin(){
+        return $this->role === 'admin';
+    }
+
+
+    public function products(){
+
+        return $this->hasMany('App\Product');
+    }
 }
