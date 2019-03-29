@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="panel panel-default col-md-8 center-div">
-        <div class="panel-heading">
+    <div class="panel panel-default container flex-column justify-content-center align-items-center">
+        <div class="panel-heading d-flex flex-column justify-content-center align-items-center">
             <h2 class="panel-title">Ajouter une Marque</h2>
 
         </div>

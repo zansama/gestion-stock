@@ -28,4 +28,30 @@ class CategoryController extends Controller
         return redirect('/categories');
 
     }
+    public function edit($id)
+    {
+        $this->authorize('update',Category::class);
+        $category = Category::find($id);
+        return view('categoryUpdate', compact('category'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $categoryName = $request->input('name');
+
+        $category = Category::find($id);
+
+        $category->name = $categoryName;
+        $category->save();
+
+        return redirect('/categories');
+    }
+    public function destroy($id)
+    {
+        $this->authorize('delete',Category::class);
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/categories');
+    }
 }
